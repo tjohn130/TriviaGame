@@ -8,7 +8,7 @@
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--CSS Stylesheet-->
-    <link rel="stylesheet" type="text/css" href="./assets/style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <!--jQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
@@ -23,20 +23,20 @@
         <div id="answer">
             <form class="form-horizontal">
                 <div class="form-group radio">
-                    <label for="a1">A.</label>
-                    <input type="radio" name="question" id="a1" value="a" checked> Male<br>
+                    <label for="a">A.</label>
+                    <input type="radio" name="question" data-value="a" checked> <span id="a1"></span><br>
                 </div>
                 <div class="form-group radio">
-                        <label for="b1">B.</label>
-                        <input type="radio" name="question" id="b1" value="b"> Male<br>
+                        <label for="b">B.</label>
+                        <input type="radio" name="question" data-value="b"> <span id="b1"></span><br>
                 </div>
                 <div class="form-group radio">
-                        <label for="c1">C.</label>
-                        <input type="radio" name="question" id="c1" value="c"> Male<br>
+                        <label for="c">C.</label>
+                        <input type="radio" name="question" data-value="c"> <span id="c1"></span><br>
                 </div>
                 <div class="form-group radio">
-                        <label for="d1">D.</label>
-                        <input type="radio" name="question" id="d1" value="d"> Male<br>
+                        <label for="d">D.</label>
+                        <input type="radio" name="question" data-value="d"> <span id="d1"></span><br>
                     </div>
                 <button class="btn btn-primary" type="submit">Submit</button>
             </form>
