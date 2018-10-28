@@ -6,7 +6,7 @@ $(document).ready(function(){
             b:"Koichi Hirose",
             c:"Jotaro Kujo",
             d:"all the above",
-            answer:"Koichi Hirose"
+            answer:"b"
             },
             {question:"Joseph Joestar, at the end of part 3, was listening to what band on his walkman?",
             a:"Queen",
@@ -70,31 +70,66 @@ $(document).ready(function(){
             var answerB = $("#b1");
             var answerC = $("#c1");
             var answerD = $("#d1");
+            var counter = 0;
+            var wincount = 0;
+            var losscount = 0;
+            var nocount = 0;
 
-
-            function Display(){
+            //Start
+            Display(counter);
+            function Display(x){
                 
                 questionDiv.empty();
                 answerA.empty();
                 answerB.empty();
                 answerC.empty();
                 answerD.empty();
-
-                questionDiv.append(workbook[0].question)
-                answerA.text(workbook[0].a);
-                answerB.text(workbook[0].b);
-                answerC.text(workbook[0].c);
-                answerD.text(workbook[0].d);
+                if(x <= workbook.length-1){
+                questionDiv.text(workbook[x].question)
+                answerA.text(workbook[x].a);
+                answerB.text(workbook[x].b);
+                answerC.text(workbook[x].c);
+                answerD.text(workbook[x].d);
+                }
+                else{
+                    FinalDisplay();
+                }
+                
             }
 
-            Display();
-            $("button").on("click", function(){
+            function FinalDisplay(){
+
+                questionDiv.append("<p>Correct: "+wincount+"</p>");
+                questionDiv.append("<p>Unanswered: "+nocount+"</p>");
+                questionDiv.append("<p>Incorret: "+losscount+"</p>");
+            }
+
+            $("#nextbutton").on("click", function(){
                 
+                Display(counter)
+                counter++;
+                nocount++;
+                console.log(counter);
+                console.log(nocount);
+            })
 
-
-                      
-                        
-                    
+            $(".answer").on("click", function(){
+                var text = $(this).attr("data-value");
+                    if(text == workbook[counter].answer){
+                        counter++;
+                        wincount++;
+                        Display(counter);
+                        console.log(counter)
+                        console.log(wincount);
+                    }
+                    else{
+                        losscount++;
+                        counter++;
+                        Display(counter);
+                        console.log(counter);
+                        console.log(losscount);
+                    }
                 
             })
+            
 })
