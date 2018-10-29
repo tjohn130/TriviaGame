@@ -74,17 +74,20 @@ $(document).ready(function(){
             var wincount = 0;
             var losscount = 0;
             var nocount = 0;
-            var intervalId;
             var timerOn = true;
+            var interval; 
 
             
 
-            /* var timer = {
-                time = 0,
-                number = 0,
+            var timer = {
+                number:20,
                 count: function(){
-                    this.number++;
-                    var convertnum = this.convertTime(this.number);
+                    timer.number--;
+                    if(timer.number <=0){
+                        timerOn = false;
+
+                    }
+                    var convertnum = timer.convertTime(timer.number);
                     console.log(convertnum);
                     $("#timer").text(convertnum);
                 },
@@ -104,11 +107,33 @@ $(document).ready(function(){
                     }
                 
                     return minutes + ":" + seconds;                   
+                },
+                reset: function(){
+                    timer.number = 10;
+
                 }
-            }*/
+            }
 
             //Start
             Display(counter);
+
+            function timeUp(){
+
+                
+                if(timerOn == false){
+                    clearInterval(interval);
+                    counter++;
+                    nocount++;
+                    if((wincount+losscount+nocount)<=workbook.length){
+                    Display(counter);
+                    timer.number =20;
+                    timerOn = true;
+                    }
+                    
+                }
+                
+            }
+
             function Display(x){
                 
                 questionDiv.empty();
@@ -116,15 +141,19 @@ $(document).ready(function(){
                 answerB.empty();
                 answerC.empty();
                 answerD.empty();
+                interval = setInterval(timer.count, 1000)
                 if(x <= workbook.length-1){
                 questionDiv.text(workbook[x].question)
                 answerA.text(workbook[x].a);
                 answerB.text(workbook[x].b);
                 answerC.text(workbook[x].c);
                 answerD.text(workbook[x].d);
+                setTimeout(timeUp, 21*1000);
                 }
                 else{
                     FinalDisplay();
+                    intervalId(interval);
+                    $("#timer").empty();
                 }
                 
             }
@@ -141,6 +170,8 @@ $(document).ready(function(){
                 Display(counter)
                 counter++;
                 nocount++;
+                timer.number =20;
+                clearInterval(interval);
                 console.log(counter);
                 console.log(nocount);
             })
@@ -150,6 +181,8 @@ $(document).ready(function(){
                     if(text == workbook[counter].answer){
                         counter++;
                         wincount++;
+                        timer.number =20;
+                        clearInterval(interval);
                         Display(counter);
                         console.log(counter)
                         console.log(wincount);
@@ -157,6 +190,8 @@ $(document).ready(function(){
                     else{
                         losscount++;
                         counter++;
+                        timer.number =20;
+                        clearInterval(interval);
                         Display(counter);
                         console.log(counter);
                         console.log(losscount);
