@@ -5,22 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trivia Game</title>
+      <!--jQuery-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--CSS Stylesheet-->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-    <!--jQuery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <!--Header-->
-        <div>
-            <h1>Welcome to JoJo Trivia</h1>
-        </div>
-        <div class="jumbotron center-text" id="question"></div>
+    <main class="container">
+
+            <h1 class="text-center">Welcome to JoJo Trivia</h1>
+        <div class="jumbotron center-text" id="question">Please click "Next" to Start</div>
         <div class="offset-6 col-3 center-text h2" id="timer">00:20</div>
-        <div id="container">
+        <div class="container" id="answer">
             <div class="row answer" data-value="a" id="a1"></div>
             <div class="row answer" data-value="b" id="b1"></div>
             <div class="row answer" data-value="c" id="c1"></div>
@@ -28,7 +26,7 @@
                 <button class="btn btn-primary" id="nextbutton">Next</button>
             </div>
 
-    </div>
+    </main>
     <!--Javascript-->
     <script type="text/javascript" src="./assets/javascript/app.js"></script>
 </body>

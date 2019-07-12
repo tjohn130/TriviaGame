@@ -1,28 +1,28 @@
 #question{
-
+    border: 2px groove rgb(184, 50, 2);
 }
-
 #answer{
-    
+    padding: 20px;
+    padding-left: 30px;
 }
-
 body{
     background-image: url("https://wallpapermemory.com/uploads/755/jojo-s-bizarre-adventure-background-hd-1920x1080-297301.jpg");
 }
-
 .container{
     background-color: orange;
 }
-
 #question{
     background-color: burlywood;
 }
-
 .answer:hover{
     color: blue;
     background-color: wheat;
+    font-variant: small-caps;
+    font-style: italic;
 }
-
 .answer:active{
     background-color: blueviolet;
+}
+main{
+    border: 5px solid black;
 }
